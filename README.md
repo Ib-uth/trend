@@ -6,6 +6,15 @@
 
 A powerful social media analytics and trend tracking platform designed for monitoring digital conversations, analyzing market trends, and providing actionable insights from social data. This comprehensive platform helps businesses and individuals understand and leverage social media trends.
 
+## Stack Overview
+
+| Layer | Technologies |
+|--------|----------------|
+| **Frontend** | React 19, TypeScript, Vite, TailwindCSS v4, React Router v7, Lucide React, Motion, Recharts, clsx, tailwind-merge |
+| **Backend** | Express.js, SQLite3, WebSocket, TypeScript |
+| **Data** | Social media feeds, Trend analysis, Sentiment data, Influencer metrics |
+| **Infra** | Vercel deployment, GitHub Actions CI |
+
 ## Features
 
 - **Trend Analysis**: Real-time social media trend monitoring
@@ -14,30 +23,6 @@ A powerful social media analytics and trend tracking platform designed for monit
 - **Sentiment Analysis**: Advanced sentiment tracking and analysis
 - **Influencer Tracking**: Monitor key opinion leaders and influencers
 - **Reporting Tools**: Detailed reports and data export
-
-## Tech Stack
-
-### Frontend
-- **React 19** - Latest React with advanced features
-- **TypeScript** - Type-safe development environment
-- **TailwindCSS v4** - Modern utility-first styling
-- **Vite** - Ultra-fast build system
-- **React Router v7** - Sophisticated routing
-- **Lucide React** - Comprehensive icon system
-- **Motion** - Fluid animations
-- **Recharts** - Advanced data visualization
-- **clsx & tailwind-merge** - Utility class management
-
-### Backend
-- **Express.js** - High-performance API server
-- **SQLite3** - Efficient data storage
-- **WebSocket** - Real-time data streaming
-- **TypeScript** - Full-stack type safety
-
-### Development Tools
-- **tsx** - Enhanced TypeScript execution
-- **ESLint** - Code quality tools
-- **Autoprefixer** - CSS compatibility
 
 ## Tech Stack Logos
 
@@ -76,7 +61,7 @@ Trend is evolving into a comprehensive social intelligence ecosystem:
    # Configure social media API keys in .env.local
    ```
 
-3. **Run the platform**:
+3. **Run platform**:
    ```bash
    npm run dev
    ```

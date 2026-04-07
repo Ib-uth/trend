@@ -33,10 +33,6 @@ import {
 } from 'recharts';
 import { cn } from '../lib/utils';
 import { initialSignals, SocialSignal, initialAlerts } from '../constants';
-import { GoogleGenAI, Type } from "@google/genai";
-
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-
 interface AISummary {
   topic: string;
   platform: string;
@@ -162,30 +158,14 @@ export default function SocialFeeds() {
     async function generateSummaries() {
       setIsLoadingAI(true);
       try {
-        const response = await ai.models.generateContent({
-          model: "gemini-3-flash-preview",
-          contents: `Based on these trending topics: ${JSON.stringify(initialAlerts.slice(0, 3))}, generate a brief summary for each. Return as a JSON array of objects with keys: topic, platform, sentimentScore (0-100), and summary (max 20 words).`,
-          config: {
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: Type.ARRAY,
-              items: {
-                type: Type.OBJECT,
-                properties: {
-                  topic: { type: Type.STRING },
-                  platform: { type: Type.STRING },
-                  sentimentScore: { type: Type.NUMBER },
-                  summary: { type: Type.STRING }
-                },
-                required: ["topic", "platform", "sentimentScore", "summary"]
-              }
-            }
-          }
-        });
-
-        if (response.text) {
-          setAiSummaries(JSON.parse(response.text));
-        }
+        // Mock AI summaries for demo purposes
+        const summaries: AISummary[] = initialAlerts.slice(0, 3).map((alert, index) => ({
+          topic: alert,
+          platform: ['Twitter', 'Reddit', 'LinkedIn'][index % 3],
+          sentimentScore: Math.floor(Math.random() * 40) + 60,
+          summary: `Analysis of ${alert} trends shows ${Math.floor(Math.random() * 50) + 50}% positive sentiment across social platforms.`
+        }));
+        setAiSummaries(summaries);
       } catch (error) {
         console.error("Failed to generate AI summaries:", error);
         // Fallback data if AI fails
